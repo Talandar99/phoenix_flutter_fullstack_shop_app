@@ -1,0 +1,29 @@
+#project init
+mix phx.new phx_shop_api --no-install --app phx_shop_api --database postgres --no-live --no-assets --no-html --no-dashboard --no-mailer --binary-id
+
+#database objects
+mix phx.gen.json MODULE_NAME SCHEMA_FILE TABLE variable:type
+
+mix phx.gen.json Accounts Account accounts email:string password:string full_name:string phone_number:string is_admin:boolean
+
+# iex test 
+iex >> 
+PhxShopApi.Accounts.create_account(%{email: "john@small.com" ,password: "okoń",full_name: "Jan Mały" ,phone_number: "+-376 66" ,is_admin: true})
+PhxShopApi.Accounts.create_account(%{email: "tzo@toznowu.oni" ,password: "okoń",full_name: "Jan Mały" ,phone_number: "+-376 66" ,is_admin: true})
+PhxShopApiWeb.Auth.Guardian.authenticate("tzo@toznowu.oni","okońń")
+PhxShopApiWeb.Auth.Guardian.authenticate("tzo@toznowu.oni","okoń")
+
+
+żesą 
+http://localhost:4000/api/accounts/create
+{
+"account":
+  	{
+  	"email": "tzooo@toznowu.oni",
+  	"password": "okaaoń",
+  	"full_name": "Jan Mały" ,
+  	"phone_number": "+-376 66" ,
+  	"is_admin": true
+  } 
+}
+

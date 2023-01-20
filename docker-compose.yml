@@ -1,0 +1,13 @@
+version: '1'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: phx_shop_api_db_user
+      POSTGRES_PASSWORD: phx_shop_super_good_secret_password
+      POSTGRES_DB: phx_shop_api_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
