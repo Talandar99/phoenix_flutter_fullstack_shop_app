@@ -6,6 +6,6 @@ docker compose up -d
 ```
 
 ## Docker Roadmap
-[x] database
-[] backend
-[] frontend
+- [x] database
+- [ ] backend
+- [ ] frontend
