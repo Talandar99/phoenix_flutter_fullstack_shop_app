@@ -1,4 +1,4 @@
-# Flutter and Phoenix Fullstack Application
+# Phoenix Flutter Fullstack Application
 
 ## How to run
 ```
