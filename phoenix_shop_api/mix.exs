@@ -43,7 +43,7 @@ defmodule PhxShopApi.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:guardian, "~> 2.3"},
-      {:bcrypt_elixir, "~> 3.0"}    ]
+      {:bcrypt_elixir, "~> 3.0.1"}    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
