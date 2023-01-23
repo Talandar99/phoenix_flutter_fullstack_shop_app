@@ -7,6 +7,7 @@ RUN mix local.hex --force && mix local.rebar --force
 WORKDIR /app
 
 COPY . .
+CMD mix deps.get
 RUN mix do deps.get, deps.compile
-CMD mix depx.get
+EXPOSE 4000
 CMD mix phx.server

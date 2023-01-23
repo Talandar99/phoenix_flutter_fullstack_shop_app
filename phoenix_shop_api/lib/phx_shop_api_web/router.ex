@@ -2,12 +2,20 @@ defmodule PhxShopApiWeb.Router do
   use PhxShopApiWeb, :router
   use Plug.ErrorHandler
 
-  defp handle_errors(conn, %{reason: %Phoenix.Router.NoRouteError{message: message}}) do
+  def handle_errors(conn, %{reason: %{message: message}}) do
     conn |> json(%{errors: message}) |> halt()
   end
 
-  defp handle_errors(conn, %{reason: %{message: message}}) do
+  def handle_errors(conn, %{reason: %Phoenix.Router.NoRouteError{message: message}}) do
     conn |> json(%{errors: message}) |> halt()
+  end
+
+  def handle_errors(conn, %{reason: %Plug.Parsers.ParseError{}}) do
+    conn |> json(%{errors: "Invalid JSON formatting"}) |> halt()
+  end
+
+  def handle_errors(conn, _reason) do
+    conn |> json(%{errors: "An error occurred"}) |> halt()
   end
 
   pipeline :api do
