@@ -7,6 +7,14 @@
 # General application configuration
 import Config
 
+config :cors_plug,
+  allow_origins: ["http://localhost"],
+  allow_methods: ["GET", "POST", "OPTIONS"],
+  allow_headers: ["accept", "content-type", "x-requested-with", "x-csrf-token", "authorization"]
+
+config :phoenix, :cors_origins, ["http://localhost"]
+config :phoenix, :cors_headers, ["accept", "content-type"]
+
 config :phx_shop_api,
   ecto_repos: [PhxShopApi.Repo],
   generators: [binary_id: true]

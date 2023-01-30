@@ -4,9 +4,9 @@ import Config
 config :phx_shop_api, PhxShopApi.Repo,
   username: "phx_shop_api_db_user",
   password: "phx_shop_super_good_secret_password",
-  #  hostname: "postgres",
+  hostname: "postgres",
   # hostname: "192.168.1.33",
-   hostname: "localhost",
+  # hostname: "localhost",
   database: "phx_shop_api_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
@@ -28,6 +28,8 @@ config :phx_shop_api, PhxShopApiWeb.Endpoint,
   secret_key_base: "KolMlvMhGF6I6/ELhL+a5pGeng0HghCJ8z+6a7ToIQGPc0Mon96jFPEr2TCSfV37",
   watchers: []
 
+config :phoenix, :cors_origins, ["http://localhost"]
+config :phoenix, :cors_headers, ["accept", "content-type"]
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

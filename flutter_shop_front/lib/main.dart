@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:shop_frontend/pages/login_page.dart';
 
-void main() => runApp(const MyApp());
+import 'dependancy_injection.dart';
+import 'pages/main_page.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
+  MyApp({Key? key}) : super(key: key) {
+    setupDependencyInjection(navigatorKey);
+  }
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Shop app sample',
-      home: LoginPage(),
+    return MaterialApp(
+      title: 'Shop app ',
+      home: MainPage(),
     );
   }
 }

@@ -20,7 +20,7 @@ defmodule PhxShopApi.MixProject do
   def application do
     [
       mod: {PhxShopApi.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :corsica]
     ]
   end
 
@@ -33,6 +33,9 @@ defmodule PhxShopApi.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:cors_plug, "~> 3.0"},
+      {:plug, "~> 1.0"},
+      {:corsica, "~> 1.0"},
       {:phoenix, "~> 1.6.15"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.6"},
@@ -43,7 +46,8 @@ defmodule PhxShopApi.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:guardian, "~> 2.3"},
-      {:bcrypt_elixir, "~> 3.0.1"}    ]
+      {:bcrypt_elixir, "~> 3.0.1"}
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

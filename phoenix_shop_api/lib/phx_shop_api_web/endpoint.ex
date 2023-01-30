@@ -9,7 +9,6 @@ defmodule PhxShopApiWeb.Endpoint do
     key: "_phx_shop_api_key",
     signing_salt: "SlWNlCv8"
   ]
-
   # socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
@@ -40,5 +39,12 @@ defmodule PhxShopApiWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+
+  plug Corsica,
+    origins: "*",
+    allow_headers: :all,
+    allow_methods: :all,
+    allow_credentials: true
+
   plug PhxShopApiWeb.Router
 end

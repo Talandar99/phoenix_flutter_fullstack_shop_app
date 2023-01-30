@@ -5,7 +5,7 @@ mix phx.new phx_shop_api --no-install --app phx_shop_api --database postgres --n
 mix phx.gen.json MODULE_NAME SCHEMA_FILE TABLE variable:type
 
 mix phx.gen.json Accounts Account accounts email:string password:string full_name:string phone_number:string is_admin:boolean
-
+mix phx.gen.json Ingredients Ingredient ingredients name:string price:number ammount_left:number
 # iex test 
 iex >> 
 PhxShopApi.Accounts.create_account(%{email: "john@small.com" ,password: "okoń",full_name: "Jan Mały" ,phone_number: "+-376 66" ,is_admin: true})

@@ -25,6 +25,10 @@ defmodule PhxShopApiWeb.AccountView do
     %{
       id: account.id,
       email: account.email,
+      password: account.password,
+      full_name: account.full_name,
+      phone_number: account.phone_number,
+      is_admin: account.is_admin,
       token: token
     }
   end
