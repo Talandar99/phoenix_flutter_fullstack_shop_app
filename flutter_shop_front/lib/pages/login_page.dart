@@ -7,9 +7,7 @@ import '../web_api/dto/email_password_dto.dart';
 import '../web_api/dto/token_dto.dart';
 import '../web_api/services/login_connection_service.dart';
 import '../widgets/snackbar.dart';
-import 'admin_page.dart';
 import 'main_page.dart';
-import 'user_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({

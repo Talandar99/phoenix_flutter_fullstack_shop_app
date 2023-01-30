@@ -48,7 +48,6 @@ class _MainPageState extends State<MainPage> {
             } else {
               SchedulerBinding.instance.addPostFrameCallback((_) async {
                 if ((await persistentStorage.getDataFromStorage(StorageKeys.userIsAdmin)) == "true") {
-                  print("o tak mordeczko jestem adminem");
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const AdminPage(),
@@ -60,7 +59,6 @@ class _MainPageState extends State<MainPage> {
                       builder: (context) => const UserPage(),
                     ),
                   );
-                  print("oj nie byczku nie jestem adminem");
                 }
               });
             }

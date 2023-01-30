@@ -25,7 +25,7 @@ defmodule PhxShopApiWeb.Router do
 
   pipeline :auth do
     plug PhxShopApiWeb.Auth.Pipeline
-    plug PhxShopApiWeb.Auth.SetAccount
+    # plug PhxShopApiWeb.Auth.SetAccount
   end
 
   scope "/api", PhxShopApiWeb do
@@ -38,5 +38,17 @@ defmodule PhxShopApiWeb.Router do
   scope "/api", PhxShopApiWeb do
     pipe_through [:api, :auth]
     get "/accounts/by_id/:id", AccountController, :show
+    # ingredients
+    get "/ingredients", IngredientController, :index
+    get "/ingredients/by_id/:id", IngredientController, :show
+    post "/ingredients/update/:id", IngredientController, :update
+    delete "/ingredients/delete/:id", IngredientController, :delete
+    post "/ingredients/create", IngredientController, :create
+    # recipes
+    get "/recipes", RecipeController, :index
+    get "/recipes/by_id/:id", RecipeController, :show
+    post "/recipes/update/:id", RecipeController, :update
+    delete "/recipes/delete/:id", RecipeController, :delete
+    post "/recipes/create", RecipeController, :create
   end
 end

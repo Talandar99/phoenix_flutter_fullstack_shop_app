@@ -4,8 +4,8 @@ import 'package:shop_frontend/widgets/snackbar.dart';
 import 'persistant_storage/cookies_storage/cookies_storage.dart';
 import 'persistant_storage/persistant_storage.dart';
 import 'persistant_storage/shared_persistance_storage/shared_preferences_storage.dart';
-import 'web_api/connection/account_connection.dart';
 import 'web_api/services/api_service.dart';
+import 'web_api/services/connection/ingredients_connection_service.dart';
 import 'web_api/services/login_connection_service.dart';
 
 void setupDependencyInjection(navigatorKey) {
@@ -16,8 +16,8 @@ void setupDependencyInjection(navigatorKey) {
       return SharedPreferencesStorage();
     }
   });
-  GetIt.I.registerLazySingleton<AccountConncetion>(
-    () => AccountConncetion(),
+  GetIt.I.registerLazySingleton<IngredientsConncetionService>(
+    () => IngredientsConncetionService(),
   );
   GetIt.I.registerLazySingleton<LoginConnectionService>(
     () => LoginConnectionService(),

@@ -13,7 +13,14 @@ config :cors_plug,
   allow_headers: ["accept", "content-type", "x-requested-with", "x-csrf-token", "authorization"]
 
 config :phoenix, :cors_origins, ["http://localhost"]
-config :phoenix, :cors_headers, ["accept", "content-type"]
+
+config :phoenix, :cors_headers, [
+  "accept",
+  "content-type",
+  "x-requested-with",
+  "x-csrf-token",
+  "authorization"
+]
 
 config :phx_shop_api,
   ecto_repos: [PhxShopApi.Repo],
