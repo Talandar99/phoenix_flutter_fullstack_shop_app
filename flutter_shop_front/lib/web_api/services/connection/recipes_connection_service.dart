@@ -11,7 +11,7 @@ class RecipesConncetionService {
 
   Future<RecipeDto> getAllIngredients() async {
     var response = await apiService.makeApiGetRequest(
-      '$apiHost/api/sizes',
+      '$apiHost/api/recipes',
     );
     if (response.statusCode == 200) {
       var decodedBody = json.decode(response.body);
