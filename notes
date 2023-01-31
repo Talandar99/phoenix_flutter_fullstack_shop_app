@@ -6,16 +6,20 @@ mix phx.gen.json MODULE_NAME SCHEMA_FILE TABLE variable:type
 
 mix phx.gen.json Accounts Account accounts email:string password:string full_name:string phone_number:string is_admin:boolean
 mix phx.gen.json Ingredients Ingredient ingredients name:string price:float ammount_left:integer
-mix phx.gen.json Recipes Recipe recipes title:string ingredients_list
+mix phx.gen.json Recipes Recipe recipes title:string ingredients_list:string
+mix phx.gen.json Meals Meal meals userid:string recipeid:string orderdate:string status:string 
+mix phx.gen.json Sizes Size sizes size:string multiplier:float
+
+
 # iex test 
 iex >> 
 PhxShopApi.Accounts.create_account(%{email: "john@small.com" ,password: "okoń",full_name: "Jan Mały" ,phone_number: "+-376 66" ,is_admin: true})
 PhxShopApi.Accounts.create_account(%{email: "tzo@toznowu.oni" ,password: "okoń",full_name: "Jan Mały" ,phone_number: "+-376 66" ,is_admin: true})
+PhxShopApi.Accounts.create_account(%{email: "john@small.com" ,password: "okoń",full_name: "Jan Mały" ,phone_number: "+-376 66" ,is_admin: true})
 PhxShopApiWeb.Auth.Guardian.authenticate("tzo@toznowu.oni","okońń")
 PhxShopApiWeb.Auth.Guardian.authenticate("tzo@toznowu.oni","okoń")
+PhxShopApi.Sizes.create_size(%{size: "taaaaki ",multiplier: 2.7})
 
-
-PhxShopApi.Accounts.create_account(%{email: "john@small.com" ,password: "okoń",full_name: "Jan Mały" ,phone_number: "+-376 66" ,is_admin: true})
 
 docker exec -it $(docker ps --filter name=phoenix_shop_api-web -q) iex
 żesą 

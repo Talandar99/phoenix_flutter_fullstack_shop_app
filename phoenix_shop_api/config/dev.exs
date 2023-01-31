@@ -4,9 +4,10 @@ import Config
 config :phx_shop_api, PhxShopApi.Repo,
   username: "phx_shop_api_db_user",
   password: "phx_shop_super_good_secret_password",
-  hostname: "postgres",
+  # hostname: "postgres",
   # hostname: "192.168.1.33",
-  # hostname: "localhost",
+
+  hostname: "localhost",
   database: "phx_shop_api_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,

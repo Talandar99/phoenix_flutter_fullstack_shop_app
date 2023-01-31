@@ -50,5 +50,17 @@ defmodule PhxShopApiWeb.Router do
     post "/recipes/update/:id", RecipeController, :update
     delete "/recipes/delete/:id", RecipeController, :delete
     post "/recipes/create", RecipeController, :create
+    # meals 
+    get "/meals", MealController, :index
+    get "/meals/by_id/:id", MealController, :show
+    post "/meals/update/:id", MealController, :update
+    delete "/meals/delete/:id", MealController, :delete
+    post "/meals/create", MealController, :create
+    # sizes
+    get "/sizes", SizeController, :index
+    get "/sizes/by_id/:id", SizeController, :show
+    post "/sizes/update/:id", SizeController, :update
+    delete "/sizes/delete/:id", SizeController, :delete
+    post "/sizes/create", SizeController, :create
   end
 end
