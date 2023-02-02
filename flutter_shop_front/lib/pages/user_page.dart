@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import '../persistant_storage/persistant_storage.dart';
+import '../view/user/history_view.dart';
+import '../view/user/new_order_view.dart';
+import '../view/user/orders_view.dart';
 
 class UserPage extends StatefulWidget {
   const UserPage({super.key});
@@ -9,20 +14,10 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, color: Colors.white);
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: ',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: ',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: ',
-      style: optionStyle,
-    ),
+    OrdersView(),
+    HistoryView(),
+    NewOrderView(),
   ];
 
   void _onItemTapped(int index) {
@@ -31,40 +26,17 @@ class _UserPageState extends State<UserPage> {
     });
   }
 
+  final PersistentStorage persistentStorage = GetIt.I<PersistentStorage>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Shop App Frontend - User View"),
+        title: Text("Hello Client"),
         backgroundColor: Colors.green,
       ),
-      body: Column(
-        children: [
-          TitleTile(),
-          Expanded(
-            child: ListView(
-              children: [
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-                NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
-              ],
-            ),
-          ),
-        ],
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      //body: NewWidget(widgetOptions: _widgetOptions, selectedIndex: _selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.green,
         items: const <BottomNavigationBarItem>[
@@ -73,137 +45,17 @@ class _UserPageState extends State<UserPage> {
             label: 'Orders',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'Order History',
+            icon: Icon(Icons.list),
+            label: 'Order history',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.new_label),
+            label: 'New Order',
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
         onTap: _onItemTapped,
-      ),
-    );
-  }
-}
-
-class NewWidget extends StatelessWidget {
-  const NewWidget({
-    Key? key,
-    required List<Widget> widgetOptions,
-    required int selectedIndex,
-  })  : _widgetOptions = widgetOptions,
-        _selectedIndex = selectedIndex,
-        super(key: key);
-
-  final List<Widget> _widgetOptions;
-  final int _selectedIndex;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Container(
-          decoration: BoxDecoration(
-            color: Colors.green[300],
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-            ),
-          ),
-          child: TileContent()),
-    );
-  }
-}
-
-class TitleTile extends StatelessWidget {
-  const TitleTile({super.key});
-  @override
-  Widget build(BuildContext context) {
-    String nazwa = "Nazwa";
-    String date = "      Data      ";
-    String status = "Status";
-    return Container(
-      color: Colors.green[300],
-      child: Padding(
-        padding: const EdgeInsets.only(
-          bottom: 10,
-          top: 10,
-          left: 30,
-          right: 30,
-        ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  nazwa,
-                  style: TextStyle(color: Colors.white, fontSize: 30),
-                ),
-                Text(
-                  "|",
-                  style: TextStyle(color: Colors.white, fontSize: 30),
-                ),
-                Text(
-                  date,
-                  style: TextStyle(color: Colors.white, fontSize: 30),
-                ),
-                Text(
-                  "|",
-                  style: TextStyle(color: Colors.white, fontSize: 30),
-                ),
-                Text(
-                  status,
-                  style: TextStyle(color: Colors.white, fontSize: 30),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class TileContent extends StatelessWidget {
-  const TileContent({super.key});
-  @override
-  Widget build(BuildContext context) {
-    String nazwa = "Nazwa";
-    String date = "00.00.0000";
-    String status = "status";
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                nazwa,
-                style: TextStyle(color: Colors.white, fontSize: 30),
-              ),
-              Text(
-                "|",
-                style: TextStyle(color: Colors.white, fontSize: 30),
-              ),
-              Text(
-                date,
-                style: TextStyle(color: Colors.white, fontSize: 30),
-              ),
-              Text(
-                "|",
-                style: TextStyle(color: Colors.white, fontSize: 30),
-              ),
-              Text(
-                status,
-                style: TextStyle(color: Colors.white, fontSize: 30),
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }

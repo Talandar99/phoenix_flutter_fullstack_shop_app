@@ -39,7 +39,7 @@ class LoginConnectionService {
         account.email.toString(),
       );
       persistentStorage.pushDataToStorage(
-        StorageKeys.userID,
+        StorageKeys.uID,
         account.id.toString(),
       );
       return TokenDto.fromJson(decodedBody);

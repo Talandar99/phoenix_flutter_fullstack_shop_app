@@ -4,15 +4,15 @@ import '../../web_api/dto/order_view_ready_dto.dart';
 import '../../web_api/services/connection/meals_connection_service.dart';
 import '../../web_api/services/orders_view_ready_service.dart';
 
-class OrdersView extends StatefulWidget {
-  const OrdersView({super.key});
+class HistoryView extends StatefulWidget {
+  const HistoryView({super.key});
 
   @override
-  State<OrdersView> createState() => _OrdersViewState();
+  State<HistoryView> createState() => _HistoryViewState();
 }
 
 @override
-class _OrdersViewState extends State<OrdersView> {
+class _HistoryViewState extends State<HistoryView> {
   final MealsConncetionService mealsConncetionService = GetIt.I<MealsConncetionService>();
   final OrdersViewReadyService ordersViewReadyService = GetIt.I<OrdersViewReadyService>();
 
@@ -38,7 +38,7 @@ class _OrdersViewState extends State<OrdersView> {
                       return Container();
                     }
                     if ((snapshot.data![index].currentUser == snapshot.data![index].accountDto.email) &&
-                        snapshot.data![index].status != "odebrane") {
+                        snapshot.data![index].status == "odebrane") {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(

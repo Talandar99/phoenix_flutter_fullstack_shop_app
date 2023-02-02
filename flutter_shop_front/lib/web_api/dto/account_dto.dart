@@ -17,12 +17,12 @@ class AccountDto {
 
   factory AccountDto.fromJson(Map<String, dynamic> json) {
     return AccountDto(
-      id: json['id'],
       email: json['email'],
-      password: json['password'],
       fullName: json['full_name'],
-      phoneNumber: json['phone_number'],
+      id: json['id'],
       isAdmin: json['is_admin'],
+      password: json['password'],
+      phoneNumber: json['phone_number'],
     );
   }
 }

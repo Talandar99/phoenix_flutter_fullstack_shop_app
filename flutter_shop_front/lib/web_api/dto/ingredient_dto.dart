@@ -1,4 +1,6 @@
-class IngredientDto {
+import 'dto_to_json_interface.dart';
+
+class IngredientDto implements DtoToJsonInterface {
   String id;
   String name;
   double price;
@@ -18,5 +20,14 @@ class IngredientDto {
       price: json['price'],
       ammountLeft: json['ammount_left'],
     );
+  }
+  @override
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ammount_left'] = ammountLeft;
+    data['id'] = id;
+    data['name'] = name;
+    data['price'] = price;
+    return {'ingredient': data};
   }
 }

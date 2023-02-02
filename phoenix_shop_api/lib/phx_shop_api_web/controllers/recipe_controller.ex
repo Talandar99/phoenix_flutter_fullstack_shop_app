@@ -21,7 +21,7 @@ defmodule PhxShopApiWeb.RecipeController do
 
   def show(conn, %{"id" => id}) do
     recipe = Recipes.get_recipe!(id)
-    render(conn, "show.json", recipe: recipe)
+    render(conn, "recipe.json", recipe: recipe)
   end
 
   def update(conn, %{"id" => id, "recipe" => recipe_params}) do

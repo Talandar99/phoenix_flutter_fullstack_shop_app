@@ -38,6 +38,11 @@ defmodule PhxShopApiWeb.AccountController do
     render(conn, "show.json", account: conn.assigns.account)
   end
 
+  def show_by_id(conn, %{"id" => id}) do
+    account = Accounts.get_account!(id)
+    render(conn, "account.json", account: account)
+  end
+
   def update(conn, %{"id" => id, "account" => account_params}) do
     account = Accounts.get_account!(id)
 

@@ -1,19 +1,19 @@
 class SizeDto {
   String id;
-  String sizeName;
-  int orderNum;
+  double multiplier;
+  String size;
 
   SizeDto({
     required this.id,
-    required this.sizeName,
-    required this.orderNum,
+    required this.multiplier,
+    required this.size,
   });
 
   factory SizeDto.fromJson(Map<String, dynamic> json) {
     return SizeDto(
       id: json['id'],
-      sizeName: json['size_name'],
-      orderNum: json['orderNum'],
+      multiplier: json['multiplier'],
+      size: json['size'],
     );
   }
 }

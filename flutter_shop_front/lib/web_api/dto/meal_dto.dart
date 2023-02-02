@@ -1,17 +1,29 @@
-class MealDto {
-  String id;
+import 'dto_to_json_interface.dart';
+
+class MealDto implements DtoToJsonInterface {
+  String? id;
   String userId;
   String recipeId;
   String orderDate;
   String status;
 
   MealDto({
-    required this.id,
+    this.id,
     required this.userId,
     required this.recipeId,
     required this.orderDate,
     required this.status,
   });
+
+  @override
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['userid'] = userId;
+    data['recipeid'] = recipeId;
+    data['status'] = status;
+    data['orderdate'] = orderDate;
+    return {'meal': data};
+  }
 
   factory MealDto.fromJson(Map<String, dynamic> json) {
     return MealDto(

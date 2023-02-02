@@ -67,10 +67,12 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll<Color>(Colors.green[800]!),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    style: Theme.of(context).textTheme.displaySmall,
                     buttonText,
                   ),
                 ),
@@ -139,7 +141,12 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: TextButton(
-                onPressed: () => {Navigator.pushNamed(context, "/register")},
+                onPressed: () => {
+                  snackbar.show(
+                    context,
+                    'Przykro mi',
+                  )
+                },
                 child: const Text('Nie masz konta?'),
               ),
             )

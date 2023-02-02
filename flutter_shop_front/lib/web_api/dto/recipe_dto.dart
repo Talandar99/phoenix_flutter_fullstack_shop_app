@@ -13,7 +13,7 @@ class RecipeDto {
     return RecipeDto(
       id: json['id'],
       title: json['title'],
-      ingredientIdList: json['ingredient_id_list'],
+      ingredientIdList: json['ingredients_list'],
     );
   }
 }

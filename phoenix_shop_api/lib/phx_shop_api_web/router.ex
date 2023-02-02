@@ -37,7 +37,9 @@ defmodule PhxShopApiWeb.Router do
 
   scope "/api", PhxShopApiWeb do
     pipe_through [:api, :auth]
+    get "/accounts", AccountController, :index
     get "/accounts/by_id/:id", AccountController, :show
+    get "/accounts/by_id_auth/:id", AccountController, :show_by_id
     # ingredients
     get "/ingredients", IngredientController, :index
     get "/ingredients/by_id/:id", IngredientController, :show
