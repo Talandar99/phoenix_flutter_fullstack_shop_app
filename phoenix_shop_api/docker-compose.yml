@@ -9,6 +9,8 @@ services:
       - MIX_ENV=dev
     volumes:
       - .:/app
+    depends_on:
+      - postgres 
   postgres:
     image: postgres
     environment:

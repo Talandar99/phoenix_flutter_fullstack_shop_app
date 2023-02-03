@@ -3,6 +3,6 @@ services:
   web:
     image: nginx:latest
     ports:
-      - "80:80"
+      - "8888:80"
     volumes:
       - ./build/web:/usr/share/nginx/html
