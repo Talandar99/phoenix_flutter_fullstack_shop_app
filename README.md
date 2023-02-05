@@ -2,7 +2,7 @@
 
 ## How to run
 ```
-./deploy
+./deploy.sh
 ```
 
 
