@@ -2,10 +2,7 @@
 
 ## How to run
 ```
-docker compose up -d
+./deploy
 ```
 
-## TODO
-- [x] database
-- [ ] backend
-- [ ] frontend
+
