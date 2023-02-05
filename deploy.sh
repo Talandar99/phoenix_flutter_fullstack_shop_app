@@ -14,7 +14,7 @@ docker compose up -d --build
 sleep 5
 echo "waiting"
 sleep 5
-echo "waiting"
+echo "db is starting"
 sleep 5
 echo "-----------------------------------"
 echo "initializing and migrating database"
